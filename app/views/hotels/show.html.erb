@@ -24,27 +24,24 @@
       Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
     </div>
     <div class="content">
-      <p>Latitude: <%= @hotel.latitude %></p>
-      <p>Longitude: <%= @hotel.longitude %></p>
       <p>Map</p>
       <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: <%= @hotel.latitude %>, lng: <%= @hotel.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFPP84MF3L9WqW4jcu5fAv709snqLSitg&callback=initMap">
-    </script>
-
+      <script>
+        function initMap() {
+          var uluru = {lat: <%= @hotel.latitude %>, lng: <%= @hotel.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+      </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFPP84MF3L9WqW4jcu5fAv709snqLSitg&callback=initMap">
+      </script>
     </div>
   </div>
 
