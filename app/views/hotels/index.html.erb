@@ -21,7 +21,7 @@
 
 <br>
 
-<table class="ui fixed celled padded unstackable table">
+<table class="ui fixed celled padded stackable table">
   <thead>
     <tr>
       <th class="ui center aligned header">Name</th>
@@ -41,9 +41,9 @@
         <td><%= hotel.city %></td>
         <td><%= hotel.address %></td>
         <td><%= hotel.review.title %></td>
-        <td><%= truncate(hotel.review.text, length: 200) { link_to "(continue)", hotel } %></td>
+        <td><%= truncate(hotel.review.text, length: 150) { link_to "(read more)", hotel } %></td>
         <td class="center aligned"><div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div></td>
-        <td class="ui center aligned header"><%= link_to semantic_icon('clipboard')+'Show', hotel, class: 'ui blue button' %></td>
+        <td class="ui center aligned"><%= link_to semantic_icon('file alternate')+'Show', hotel, class: 'fluid ui blue button' %></td>
       </tr>
     <% end %>
   </tbody>

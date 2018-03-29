@@ -11,7 +11,7 @@ class Hotel
   # Search
   def self.search(search)
     if search
-      any_of({name: /#{search}/i},{"review.text": /#{search}/i})
+      any_of({name: /#{search}/i},{'review.text': /#{search}/i})
     end
   end
 end

@@ -14,17 +14,6 @@
       <div class="center aligned header"><%= @hotel.name %></div>
       <div class="center aligned meta"><%= @hotel.address %></div>
       <div class="center aligned meta"><%= @hotel.city %></div>
-      <div class="ui divider"></div>
-      <div class="description">
-        <p><%= @hotel.review.title %></p>
-        <p><%= @hotel.review.text %></p>
-      </div>
-    </div>
-    <div class="extra content">
-      Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
-    </div>
-    <div class="content">
-      <p>Map</p>
       <div id="map"></div>
       <script>
         function initMap() {
@@ -42,11 +31,17 @@
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFPP84MF3L9WqW4jcu5fAv709snqLSitg&callback=initMap">
       </script>
+      <div class="ui divider"></div>
+      <div class="description">
+        <p><%= @hotel.review.title %></p>
+        <p><%= @hotel.review.text %></p>
+      </div>
+    </div>
+    <div class="extra content">
+      Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
     </div>
   </div>
 
   <br>
   
   <%= link_to 'Back', hotels_path, class: 'fluid ui blue button' %>
-
-  <br>

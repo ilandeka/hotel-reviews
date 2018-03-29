@@ -39,10 +39,6 @@ form input {
     width: 30vw !important;
 }
 
-.content {
-    color: black !important;
-}
-
 .center {
     margin: 0 auto !important;
     text-align: center !important;
@@ -99,6 +95,23 @@ form input {
 }
 
 #map {
-    height: 400px;
+    height: 40vh;
     width: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+    body {
+      font-size: 90% !important; 
+    }
+    td a {
+        font-size: 90% !important;
+    }
+}  
+@media screen and (max-width: 1024px) {
+    body {
+      font-size: 80% !important; 
+    }
+    td a {
+        font-size: 80% !important;
+    }
+}  
