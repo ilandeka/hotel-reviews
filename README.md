@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Description:
 
-Things you may want to cover:
+This app is built using Ruby on Rails and MongoDB. The app uses an ODM called Mongoid to connect the Rails app with the Mongo database.
 
-* Ruby version
+# Application Specs:
 
-* System dependencies
+* Rails version 5.1.5
 
-* Configuration
+* Database version MongoDB 3.6
 
-* Database creation
+* ODM version Mongoid 6.1.0
 
-* Database initialization
+* Frontend framework Semantic-UI
 
-* How to run the test suite
+* Google Maps API
 
-* Services (job queues, cache servers, search engines, etc.)
+# Deployment instructions
 
-* Deployment instructions
+* You need to have Ruby installed and Rails. When done just download app or clone from Github. Open the folder in any IDE or Texteditor or just go into folder path and run command: rails s
 
-* ...
+* Go to localhost:3000/
+
