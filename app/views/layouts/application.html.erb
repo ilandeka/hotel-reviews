@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HotelReviews</title>
+    <title>Hotel Reviews</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'hotel_icon.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <%= render 'layouts/navigation' %>
+
+    <div class="ui container">
+        <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

@@ -1,0 +1,18 @@
+<div class="ui borderless top fixed menu navbar">
+    <div class="item">
+        <i class="large h square icon"></i>
+        <%= link_to 'Hotel Reviews', hotels_path %>
+    </div>
+    <% if current_page?(hotels_path) %> 
+        <div class="ui right category search item">
+            <%= form_tag hotels_path, method: :get do %>
+                <div class="ui action left icon input">
+                    <i class="search link icon"></i>
+                    <%= text_field_tag :search, params[:search], placeholder: 'Search for Hotels...' %>
+                    <%= button_tag 'Search', name:nil, class: 'ui orange button', data: {disable_with: "<i class='
+                    spinner icon'></i> Searching..."} %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,58 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(".rating").rating('disable');
+      $('.caret.down').transition('set looping').transition('bounce', '2000ms');
+  });
+</script>
+
+<div class="cover"></div>
+
+<div id="wrapper">
+  <h1>Hotel Reviews</h1>
+  
+  <br>
+  
+  <h2 class="center aligned">Find the best hotels by reading other reviews.</h2>
+  
+  <br>
+
+  <i class="big caret down icon"></i>
+</div>
+
+<br>
+
+<table class="ui fixed celled padded unstackable table">
+  <thead>
+    <tr>
+      <th class="ui center aligned header">Name</th>
+      <th class="ui center aligned header">City</th>
+      <th class="ui center aligned header">Address</th>
+      <th class="ui center aligned header">Title</th>
+      <th class="ui center aligned header four wide">Description</th>
+      <th class="ui center aligned header">Rating</th>
+      <th class="ui center aligned header">Actions</th>    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.city %></td>
+        <td><%= hotel.address %></td>
+        <td><%= hotel.review.title %></td>
+        <td><%= truncate(hotel.review.text, length: 200) { link_to "(continue)", hotel } %></td>
+        <td class="center aligned"><div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div></td>
+        <td class="ui center aligned header"><%= link_to semantic_icon('clipboard')+'Show', hotel, class: 'ui blue button' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+  <tfoot>
+    <tr>
+      <th colspan="7" class="center aligned"><%= will_paginate @hotels, renderer: WillPaginateSemanticUi::ActionView::Renderer %></th>
+    </tr>
+  </tfoot>
+</table>
+
+<br>

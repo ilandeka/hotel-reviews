@@ -28,6 +28,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# My added gems #
+gem 'mongoid', '~> 6.1.0'
+gem 'jquery-rails'
+gem 'semantic-ui-sass'
+gem 'will_paginate_mongoid'
+gem 'will_paginate_semantic_ui'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
