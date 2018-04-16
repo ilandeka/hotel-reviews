@@ -20,40 +20,49 @@
 </div>
 
 <br>
-<% @hotels.each do |hotel| %>
+
+<% if @hotels.size == 0 %>
   <div class="ui fluid card">
     <div class="content">
-      <div class="header"><%= hotel.name %></div>
-      <div class="summary">
-        <%= hotel.city %>
-      </div>
-      <div class="summary">
-        <%= hotel.address %>
-      </div>
-    </div>
-    <div class="content">
-      <div class="ui feed">
-        <div class="event">
-          <div class="content">
-            <%= hotel.review.title %>
-          </div>
-        </div>
-        <div class="event">
-          <div class="content">
-            <%= truncate(hotel.review.text, length: 200) %>
-          </div>
-        </div>
-        <div class="event">
-          <div class="content">
-            Rating: <div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="extra content">
-      <%= link_to semantic_icon('file alternate')+'Show', hotel, class: 'fluid ui blue button' %>
+      <div class="header">No hotel reviews found.</div>
     </div>
   </div>
+<% else %>
+  <% @hotels.each do |hotel| %>
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header"><%= hotel.name %></div>
+        <div class="summary">
+          <%= hotel.city %>
+        </div>
+        <div class="summary">
+          <%= hotel.address %>
+        </div>
+      </div>
+      <div class="content">
+        <div class="ui feed">
+          <div class="event">
+            <div class="content">
+              <%= hotel.review.title %>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <%= truncate(hotel.review.text, length: 200) %>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              Rating: <div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="extra content">
+        <%= link_to semantic_icon('file alternate')+'Show', hotel, class: 'fluid ui blue button' %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 <div class="center aligned"><%= will_paginate @hotels, renderer: WillPaginateSemanticUi::ActionView::Renderer %></div>
 
