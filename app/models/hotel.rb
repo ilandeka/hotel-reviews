@@ -1,5 +1,6 @@
 class Hotel
   include Mongoid::Document
+  Mongoid::Attributes::Dynamic
   field :name, type: String
   field :city, type: String
   field :address, type: String
@@ -7,6 +8,8 @@ class Hotel
   field :longitude, type: Float
 
   embeds_one :review
+  # embeds_many :comments
+  # accepts_nested_attributes_for :comments
 
   # Search
   def self.search(search)

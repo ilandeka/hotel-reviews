@@ -35,8 +35,12 @@ body h2 {
     height: 63px !important;
 }
 
-form input {
+.nav-search {
     width: 30vw !important;
+}
+
+.card {
+    color: black;
 }
 
 .center {
@@ -53,17 +57,11 @@ form input {
     font-weight: 400;
 }
 
-.card {
-    min-height: 35vh !important;
-}
 .card .header {
     font-size: 30px !important;
 }
 .card .meta {
     font-size: 14px !important;
-}
-.card .description {
-    font-size: 16px;
 }
 .card .description p:first-child {
     font-weight: bold;

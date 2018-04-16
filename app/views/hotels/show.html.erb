@@ -9,6 +9,7 @@
 <h1>Information</h1>
 
 <br>
+
   <div class="ui fluid card">
     <div class="content">
       <div class="center aligned header"><%= @hotel.name %></div>
@@ -36,12 +37,23 @@
         <p><%= @hotel.review.title %></p>
         <p><%= @hotel.review.text %></p>
       </div>
-    </div>
-    <div class="extra content">
-      Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
+      </div>
+      <div class="extra content">
+        Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
+      </div>
+      <div class="content">
+      <p style="color:gray;font-weight:bold;">Show all comments:</p>
+      <div class="ui divider"></div>
+      <form class="ui form">
+        <div class="field">
+          <input name="name" placeholder="Name" type="text">
+        </div>
+        <div class="field">
+          <textarea name="description" placeholder="Description" type="text"></textarea>
+        </div>
+        <button class="ui button" type="submit">Post</button>
+      </form>
+      <div class="ui divider"></div>
+      <%= link_to 'Back', hotels_path, class: 'fluid ui blue button' %>
     </div>
   </div>
-
-  <br>
-  
-  <%= link_to 'Back', hotels_path, class: 'fluid ui blue button' %>

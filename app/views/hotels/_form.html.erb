@@ -10,31 +10,18 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= form.fields_for :comment do |ff| %>
+    <div class="field">
+      <%= ff.label :name %>
+      <%= ff.text_field :name, id: :hotel_comment_name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :hotel_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :hotel_city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :hotel_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :hotel_latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :hotel_longitude %>
-  </div>
+    <div class="field">
+      <%= ff.label :description %>
+      <%= ff.text_field :description, id: :hotel_comment_description %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
