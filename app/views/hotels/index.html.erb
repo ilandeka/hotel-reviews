@@ -9,101 +9,44 @@
 
 <div id="wrapper">
   <h1>Hotel Reviews</h1>
-  
-  <br>
-  
+    <br>
   <h2 class="center aligned">Find the best hotels by reading other reviews.</h2>
-  
-  <br>
-
+    <br>
   <i class="big caret down icon"></i>
 </div>
+
+<br>
+
+<div class="ui large red tag label">Found <%= number_with_delimiter(@hotels.total_entries, :delimiter => ",") %> hotel reviews!</div>
 
 <br>
 
 <% if @hotels.size == 0 %>
   <div class="ui fluid card">
     <div class="content">
-      <div class="header">No hotel reviews found.</div>
+      <h1 class="center aligned header">No hotel reviews found.</h1>
     </div>
   </div>
 <% else %>
   <% @hotels.each do |hotel| %>
     <div class="ui fluid card">
       <div class="content">
-        <div class="header"><%= hotel.name %></div>
-        <div class="summary">
-          <%= hotel.city %>
+        <div class="ui teal ribbon label">
+          <h1 class="header"><i class="hotel icon"></i> <%= hotel.name %></h1>
+          <div class="meta"><%= hotel.address %></div>
+          <div class="meta"><%= hotel.city %></div>
         </div>
-        <div class="summary">
-          <%= hotel.address %>
+        <div class="description">
+          <p><%= hotel.review.title %></p>
+          <p><%= truncate(hotel.review.text, length: 250) %></p>
         </div>
-      </div>
-      <div class="content">
-        <div class="ui feed">
-          <div class="event">
-            <div class="content">
-              <%= hotel.review.title %>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <%= truncate(hotel.review.text, length: 200) %>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              Rating: <div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="extra content">
-        <%= link_to semantic_icon('file alternate')+'Show', hotel, class: 'fluid ui blue button' %>
-      </div>
+        <div class="extra content">
+          <div class="ui large label">Rating: <div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div></div>
+          <%= link_to semantic_icon('clipboard')+'Show more', hotel, class: 'ui right floated teal button' %>
+        </div>
     </div>
   <% end %>
 <% end %>
+
 <div class="center aligned"><%= will_paginate @hotels, renderer: WillPaginateSemanticUi::ActionView::Renderer %></div>
-
-<!-- TABLE
-<table class="ui fixed celled padded stackable table">
-  <thead>
-    <tr>
-      <th class="ui center aligned header">Name</th>
-      <th class="ui center aligned header">City</th>
-      <th class="ui center aligned header">Address</th>
-      <th class="ui center aligned header">Title</th>
-      <th class="ui center aligned header four wide">Description</th>
-      <th class="ui center aligned header">Rating</th>
-      <th class="ui center aligned header">Actions</th>    
-    </tr>
-  </thead>
-
-  <tbody>
-    <% if @hotels.size == 0 %>
-      <tr>
-        <td colspan="7" class="center aligned">No hotel reviews found.</td>
-      </tr>
-    <% else %>
-      <% @hotels.each do |hotel| %>
-        <tr>
-          <td><%= hotel.name %></td>
-          <td><%= hotel.city %></td>
-          <td><%= hotel.address %></td>
-          <td><%= hotel.review.title %></td>
-          <td><%= truncate(hotel.review.text, length: 150) { link_to "(read more)", hotel } %></td>
-          <td class="center aligned"><div class="ui star rating" data-rating="<%= hotel.review.rating %>" data-max-rating="5"></div></td>
-          <td class="ui center aligned"><%= link_to semantic_icon('file alternate')+'Show', hotel, class: 'fluid ui blue button' %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-  
-  <tfoot>
-    <tr>
-      <th colspan="7" class="center aligned"><%= will_paginate @hotels, renderer: WillPaginateSemanticUi::ActionView::Renderer %></th>
-    </tr>
-  </tfoot>
-</table>
-END TABLE -->

@@ -8,9 +8,9 @@
             <%= form_tag hotels_path, method: :get do %>
                 <div class="ui action left icon input">
                     <i class="search link icon"></i>
-                    <%= text_field_tag :search, params[:search], placeholder: 'Search for Hotels...', class: 'nav-search' %>
-                    <%= button_tag 'Search', name:nil, class: 'ui orange button', data: {disable_with: "<i class='
-                    spinner icon'></i> Searching..."} %>
+                    <%= text_field_tag :search, params[:search], placeholder: 'Search for Hotel reviews...', class: 'nav-search' %>
+                    <%= button_tag 'Search', name:nil, class: 'ui teal button', data: {disable_with: "<i class='
+                    spinner loading icon'></i> Searching..."} %>
                 </div>
             <% end %>
         </div>

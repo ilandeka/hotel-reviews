@@ -6,15 +6,19 @@
 
 <div class="cover"></div>
 
-<h1>Information</h1>
+<p id="notice"><%= notice %></p>
+
+<h1 id="top">Information</h1>
 
 <br>
 
   <div class="ui fluid card">
     <div class="content">
-      <div class="center aligned header"><%= @hotel.name %></div>
-      <div class="center aligned meta"><%= @hotel.address %></div>
-      <div class="center aligned meta"><%= @hotel.city %></div>
+      <div class="ui fluid teal ribbon label">
+        <h1 class="center aligned header"><i class="hotel icon"></i> <%= @hotel.name %></h1>
+        <div class="center aligned meta"><%= @hotel.address %></div>
+        <div class="center aligned meta"><%= @hotel.city %></div>
+      </div>
       <div id="map"></div>
       <script>
         function initMap() {
@@ -37,23 +41,27 @@
         <p><%= @hotel.review.title %></p>
         <p><%= @hotel.review.text %></p>
       </div>
-      </div>
-      <div class="extra content">
-        Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div>
-      </div>
-      <div class="content">
-      <p style="color:gray;font-weight:bold;">Show all comments:</p>
-      <div class="ui divider"></div>
-      <form class="ui form">
-        <div class="field">
-          <input name="name" placeholder="Name" type="text">
+    </div>
+    <div class="extra content">
+      <div class="ui large label">Rating: <div class="ui star rating" data-rating="<%= @hotel.review.rating %>" data-max-rating="5"></div></div>
+    </div>
+    <div class="content">
+    <h3 class="ui header"><i class="comment icon"></i> Comments:</h3>
+    <div class="ui fluid teal label">
+      <% if @hotel.comment == nil  %>
+        <div class="description">
+          <p class="center aligned">No comments found.</p>
         </div>
-        <div class="field">
-          <textarea name="description" placeholder="Description" type="text"></textarea>
+      <% else %>
+        <div class="description">
+          <p>Name: <%= @hotel.comment.name %></p>
+          <p>Description: <%= @hotel.comment.description %></p>
         </div>
-        <button class="ui button" type="submit">Post</button>
-      </form>
-      <div class="ui divider"></div>
-      <%= link_to 'Back', hotels_path, class: 'fluid ui blue button' %>
+      <% end %>
+    </div>
+    <div class="ui divider"></div>
+    <%= render 'form', hotel: @hotel %>
+    <div class="ui divider"></div>
+    <%= link_to semantic_icon('left chevron')+'Back', hotels_path, class: 'fluid ui teal button' %>
     </div>
   </div>

@@ -1,14 +1,15 @@
 class Hotel
   include Mongoid::Document
-  Mongoid::Attributes::Dynamic
+
+  embeds_one :review
+  embeds_one :comment
+
   field :name, type: String
   field :city, type: String
   field :address, type: String
   field :latitude, type: Float
   field :longitude, type: Float
 
-  embeds_one :review
-  # embeds_many :comments
   # accepts_nested_attributes_for :comments
 
   # Search

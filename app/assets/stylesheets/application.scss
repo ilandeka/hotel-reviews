@@ -16,7 +16,7 @@ body {
     height: 100%;
     z-index: -2;
 }
-body h1 {
+#wrapper h1, #top {
     margin-top: 30vh !important;
     font-family: 'Grand Hotel', cursive;
     font-size: 92px;
@@ -24,11 +24,15 @@ body h1 {
     text-align: center;
     -webkit-font-smoothing: antialiased;
 }
-body h2 {
+#wrapper h2 {
     font-size: 42px;
     font-weight: 300;
     text-align: center;
     -webkit-font-smoothing: antialiased; 
+}
+
+.header {
+    margin: 0;
 }
 
 .navbar {
@@ -39,13 +43,17 @@ body h2 {
     width: 30vw !important;
 }
 
-.card {
-    color: black;
-}
-
 .center {
     margin: 0 auto !important;
     text-align: center !important;
+}
+
+.label .meta {
+    color: white !important;
+}
+
+.ribbon.label {
+    margin-bottom: 15px !important;
 }
 
 .menu {
@@ -57,14 +65,14 @@ body h2 {
     font-weight: 400;
 }
 
-.card .header {
-    font-size: 30px !important;
-}
 .card .meta {
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 .card .description p:first-child {
     font-weight: bold;
+}
+.card .description p {
+    font-size: 16px !important;
 }
 
 .footer {

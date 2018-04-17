@@ -1,5 +1,3 @@
-# README
-
 # Description:
 
 This app is built using Ruby on Rails and MongoDB. The app uses an ODM called Mongoid to connect the Rails app with the Mongo database. The database is hosted on mLab while the app itself is on Heroku.

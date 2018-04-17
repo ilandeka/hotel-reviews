@@ -1,29 +1,15 @@
-<%= form_with(model: hotel, local: true) do |form| %>
-  <% if hotel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hotel.errors.count, "error") %> prohibited this hotel from being saved:</h2>
+<%= form_for @hotel, html: { class: 'ui form' } do |form| %>
 
-      <ul>
-      <% hotel.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
   <%= form.fields_for :comment do |ff| %>
     <div class="field">
-      <%= ff.label :name %>
-      <%= ff.text_field :name, id: :hotel_comment_name %>
+      <%= ff.text_field :name, id: :hotel_comment_name, placeholder: :name %>
     </div>
 
     <div class="field">
-      <%= ff.label :description %>
-      <%= ff.text_field :description, id: :hotel_comment_description %>
+      <%= ff.text_area :description, id: :hotel_comment_description, placeholder: :description %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <button class="ui button" type="submit">Post</button>
+
 <% end %>
