@@ -54,8 +54,16 @@
         </div>
       <% else %>
         <div class="description">
-          <p>Name: <%= @hotel.comment.name %></p>
-          <p>Description: <%= @hotel.comment.description %></p>
+          <% # @hotel.comment.each do |hotel| %>
+            <div class="item">
+              <div class="content">
+                <h2 class="header"><i class="user circle icon"></i> <%= @hotel.comment.name %></h2>
+                <div class="description">
+                  <p><i class="paper plane icon"></i> <%= @hotel.comment.description %></p>
+                </div>
+              </div>
+            </div>
+          <% # end %>
         </div>
       <% end %>
     </div>

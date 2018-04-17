@@ -3,6 +3,7 @@ class Hotel
 
   embeds_one :review
   embeds_one :comment
+  # embeds_many :comments
 
   field :name, type: String
   field :city, type: String
