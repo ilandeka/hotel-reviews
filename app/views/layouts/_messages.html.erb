@@ -1,0 +1,12 @@
+<% flash.each do |name, msg| %>  
+    <div class="ui grid center aligned">
+        <div class="ui container">
+            <div class='ui large <%="#{name}"%> message'>
+                <i class="close icon"></i>
+                <div class="header">
+                    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

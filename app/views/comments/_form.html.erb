@@ -1,0 +1,14 @@
+<%= form_for(@comment, :html => {class: "ui form"}) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :comment_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :comment_description %>
+  </div>
+
+  <button class="ui button" type="submit"><%= semantic_icon('paper plane')+'Post' %></button>
+<% end %>

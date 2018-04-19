@@ -1,0 +1,14 @@
+<% obj.each do |comment| %>
+<div class="ui fluid teal label">
+    <div class="description">
+        <div class="item">
+            <div class="content">
+            <h2 class="header"><i class="circle user icon"></i> <%= comment.name %></h2>
+            <div class="description">
+                <p><i class="paper plane icon"></i> <%= comment.description %></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

@@ -1,12 +1,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
       $(".rating").rating('disable');
+      $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');
+      });
   });
 </script>
 
 <div class="cover"></div>
-
-<p id="notice"><%= notice %></p>
 
 <h1 id="top">Information</h1>
 
@@ -47,28 +48,18 @@
     </div>
     <div class="content">
     <h3 class="ui header"><i class="comment icon"></i> Comments:</h3>
-    <div class="ui fluid teal label">
-      <% if @hotel.comment == nil  %>
+    <% if @hotel_comments.count == 0 %>
+      <div class="ui fluid teal label">
         <div class="description">
           <p class="center aligned">No comments found.</p>
         </div>
-      <% else %>
-        <div class="description">
-          <% # @hotel.comment.each do |hotel| %>
-            <div class="item">
-              <div class="content">
-                <h2 class="header"><i class="user circle icon"></i> <%= @hotel.comment.name %></h2>
-                <div class="description">
-                  <p><i class="paper plane icon"></i> <%= @hotel.comment.description %></p>
-                </div>
-              </div>
-            </div>
-          <% # end %>
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <%= render 'comments/comment', obj: @hotel_comments %>
+    <% end %>
+    <div class="center aligned"><%= will_paginate @hotel_comments, renderer: WillPaginateSemanticUi::ActionView::Renderer %></div>
     <div class="ui divider"></div>
-    <%= render 'form', hotel: @hotel %>
+    <%= render 'form' %>
     <div class="ui divider"></div>
     <%= link_to semantic_icon('left chevron')+'Back', hotels_path, class: 'fluid ui teal button' %>
     </div>

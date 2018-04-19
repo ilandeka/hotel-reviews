@@ -15,6 +15,7 @@ class HotelsController < ApplicationController
   # GET /hotels/1
   # GET /hotels/1.json
   def show
+    @hotel_comments = @hotel.comments.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /hotels/new
@@ -66,6 +67,10 @@ class HotelsController < ApplicationController
     end
   end
 
+  def catch_404
+    raise ActionController::RoutingError.new(params[:path])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
@@ -74,8 +79,6 @@ class HotelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hotel_params
-      params.require(:hotel).permit(:name, :city, :address, :latitude, :longitude,
-      comment: [:name, :description])
-      #{comments: [:name, :description]})
+      params.require(:hotel).permit(:name, :city, :address, :latitude, :longitude)
     end
 end

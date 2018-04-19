@@ -1,17 +1,15 @@
 class Hotel
   include Mongoid::Document
-
-  embeds_one :review
-  embeds_one :comment
-  # embeds_many :comments
-
   field :name, type: String
   field :city, type: String
   field :address, type: String
   field :latitude, type: Float
   field :longitude, type: Float
 
-  # accepts_nested_attributes_for :comments
+  embeds_one :review
+  embeds_many :comments
+
+  accepts_nested_attributes_for :comments
 
   # Search
   def self.search(search)

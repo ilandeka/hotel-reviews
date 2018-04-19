@@ -1,14 +1,13 @@
-<%= form_for @hotel, html: { class: 'ui form' } do |form| %>
-
-  <%= form.fields_for :comment do |ff| %>
+<%= form_for([@hotel, Comment.new], html: { class: 'ui form' }) do |form| %>
     <div class="field">
-      <%= ff.text_field :name, id: :hotel_comment_name, placeholder: :name %>
+      <label>Username (min: 3, max: 50 words)</label>
+      <%= form.text_field :name, id: :comment_name, placeholder: 'Your name' %>
     </div>
-
+  
     <div class="field">
-      <%= ff.text_area :description, id: :hotel_comment_description, placeholder: :description %>
+      <label>Comment (min: 5, max: 300 words)</label>
+      <%= form.text_area :description, id: :comment_description, placeholder: 'Add comment...' %>
     </div>
-  <% end %>
 
   <button class="ui button" type="submit"><%= semantic_icon('paper plane')+'Post' %></button>
 
